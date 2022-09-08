@@ -1,11 +1,10 @@
-import { StatusBar } from "expo-status-bar";
+import "react-native-gesture-handler";
 import { StyleSheet, Text, View } from "react-native";
 import navigationTheme from "./src/components/navigationTheme";
-
 import "react-native-gesture-handler";
-import { createDrawerNavigator } from "@react-navigation/drawer";
 import AppNavigator from "./src/navigations/AppNavigator";
 import { NavigationContainer } from "@react-navigation/native";
+import MessageNavigator from "./src/navigations/MessageNavigator";
 
 export default function App() {
   return (

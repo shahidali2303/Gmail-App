@@ -41,7 +41,7 @@ export default [
   },
   {
     id: "6",
-    image: require("../../assets/images/m3.jpg"),
+    image: require("../../assets/images/m4.jpg"),
     title: "Upstox",
     time: "10:16 AM",
     subject: "Tug of War | Market close flat. CVs Sales...",
@@ -49,7 +49,7 @@ export default [
   },
   {
     id: "7",
-    image: require("../../assets/images/m3.jpg"),
+    image: require("../../assets/images/w6.jpg"),
     title: "Upstox",
     time: "10:16 AM",
     subject: "Tug of War | Market close flat. CVs Sales...",
@@ -57,7 +57,7 @@ export default [
   },
   {
     id: "8",
-    image: require("../../assets/images/m3.jpg"),
+    image: require("../../assets/images/m5.jpg"),
     title: "Upstox",
     time: "10:16 AM",
     subject: "Tug of War | Market close flat. CVs Sales...",
@@ -65,7 +65,7 @@ export default [
   },
   {
     id: "9",
-    image: require("../../assets/images/m3.jpg"),
+    image: require("../../assets/images/w4.jpg"),
     title: "Upstox",
     time: "10:16 AM",
     subject: "Tug of War | Market close flat. CVs Sales...",

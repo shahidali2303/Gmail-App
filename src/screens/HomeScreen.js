@@ -14,13 +14,20 @@ import DATA from "../../assets/data/data";
 
 const HomeScreen = ({ navigation }) => {
   const renderItem = ({ item }) => (
-    <Message
-      image={item.image}
-      subject={item.subject}
-      subtitle={item.subtitle}
-      time={item.time}
-      title={item.title}
-    />
+    <TouchableOpacity
+      activeOpacity={0.8}
+      onPress={() => {
+        navigation.navigate("Message Details", item);
+      }}
+    >
+      <Message
+        image={item.image}
+        subject={item.subject}
+        subtitle={item.subtitle}
+        time={item.time}
+        title={item.title}
+      />
+    </TouchableOpacity>
   );
   return (
     <ScrollView>
@@ -29,6 +36,7 @@ const HomeScreen = ({ navigation }) => {
         <View style={styles.listContainer}>
           <Social />
           <Promotional />
+
           <FlatList
             data={DATA}
             renderItem={renderItem}
