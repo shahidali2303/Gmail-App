@@ -8,7 +8,7 @@ import {
   TouchableOpacity,
 } from "react-native";
 import AntDesign from "react-native-vector-icons/AntDesign";
-const Message = () => {
+const Message = ({ image, title, time, subject, subtitle }) => {
   const [star, setStar] = useState("staro");
   function handleStar() {
     return setStar("star");
@@ -17,7 +17,8 @@ const Message = () => {
     <TouchableOpacity activeOpacity={0.8}>
       <View style={styles.container}>
         <Image
-          source={require("../../assets/images/m1.jpg")}
+          // source={require("../../assets/images/m1.jpg")}
+          source={image}
           style={styles.image}
           resizeMode="cover"
         />
@@ -25,16 +26,18 @@ const Message = () => {
           <View
             style={{ flexDirection: "row", justifyContent: "space-between" }}
           >
-            <Text style={{ fontSize: 18, fontWeight: "600" }}>Upstox</Text>
-            <Text style={{ fontWeight: "600" }}>7:03 PM</Text>
+            <Text style={{ fontSize: 16, fontWeight: "600" }}>{title}</Text>
+            <Text style={{ fontWeight: "600" }}>{time}</Text>
           </View>
           <View style={{ flexDirection: "row" }}>
             <View style={{}}>
-              <Text style={{ fontWeight: "600" }}>
-                Tug of War | Market close flat. CVs Sales...
+              <Text style={{ fontWeight: "500" }}>
+                {/* Tug of War | Market close flat. CVs Sales... */}
+                {subject}
               </Text>
               <Text style={{ color: "gray" }}>
-                Despite a gap-up opening, market move...
+                {/* Despite a gap-up opening, market move... */}
+                {subtitle}
               </Text>
             </View>
             <TouchableWithoutFeedback onPress={handleStar}>

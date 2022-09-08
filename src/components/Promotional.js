@@ -22,9 +22,10 @@ const Promotional = () => {
         }}
       >
         <View style={{}}>
-          <Text style={{ fontSize: 18, fontWeight: "600" }}>Social</Text>
+          <Text style={{ fontSize: 16, fontWeight: "600" }}>Promotional</Text>
+          <Text style={{ fontWeight: "400" }}>Top Picks</Text>
           <Text style={{ fontWeight: "400", color: "gray" }}>
-            Facebook,Twitter,Linkedin
+            fontawesome.com,artboardstudio,
           </Text>
         </View>
         <View style={{ flexDirection: "row", justifyContent: "space-between" }}>

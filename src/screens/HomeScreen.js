@@ -5,28 +5,42 @@ import {
   StyleSheet,
   TouchableOpacity,
   ScrollView,
+  FlatList,
 } from "react-native";
 import Message from "../components/Message";
 import Social from "../components/Social";
 import Promotional from "../components/Promotional";
+import DATA from "../../assets/data/data";
 
-const HomeScreen = () => {
+const HomeScreen = ({ navigation }) => {
+  const renderItem = ({ item }) => (
+    <Message
+      image={item.image}
+      subject={item.subject}
+      subtitle={item.subtitle}
+      time={item.time}
+      title={item.title}
+    />
+  );
   return (
     <ScrollView>
       <View style={styles.page}>
         <Text style={{ color: "gray", letterSpacing: 1 }}>PRIMARY</Text>
         <View style={styles.listContainer}>
-          <Message />
-          <Message />
           <Social />
-          <Message />
-          <Message />
-          <Message />
           <Promotional />
-          <Message />
-          <Message />
-          <Message />
-          <Message />
+          <FlatList
+            data={DATA}
+            renderItem={renderItem}
+            keyExtractor={(item) => item.id}
+            ListEmptyComponent={() => {
+              return (
+                <View>
+                  <Text>No Messages yet</Text>
+                </View>
+              );
+            }}
+          />
         </View>
       </View>
     </ScrollView>
