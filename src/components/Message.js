@@ -7,44 +7,59 @@ import {
   TouchableWithoutFeedback,
   TouchableOpacity,
 } from "react-native";
+import Swipeable from "react-native-gesture-handler/Swipeable";
 import AntDesign from "react-native-vector-icons/AntDesign";
-const Message = ({ image, title, time, subject, subtitle }) => {
+import { GestureHandlerRootView } from "react-native-gesture-handler";
+
+const Message = ({
+  image,
+  title,
+  time,
+  subject,
+  subtitle,
+  renderRightActions,
+}) => {
   const [star, setStar] = useState("staro");
   function handleStar() {
     return setStar("star");
   }
   return (
     // <TouchableOpacity activeOpacity={0.8}>
-    <View style={styles.container}>
-      <Image
-        // source={require("../../assets/images/m1.jpg")}
-        source={image}
-        style={styles.image}
-        resizeMode="cover"
-      />
-      <View style={{ flex: 1, paddingLeft: 10 }}>
-        <View style={{ flexDirection: "row", justifyContent: "space-between" }}>
-          <Text style={{ fontSize: 16, fontWeight: "600" }}>{title}</Text>
-          <Text style={{ fontWeight: "600" }}>{time}</Text>
-        </View>
-        <View style={{ flexDirection: "row" }}>
-          <View style={{}}>
-            <Text style={{ fontWeight: "500" }}>
-              {/* Tug of War | Market close flat. CVs Sales... */}
-              {subject}
-            </Text>
-            <Text style={{ color: "gray" }}>
-              {/* Despite a gap-up opening, market move... */}
-              {subtitle}
-            </Text>
+    <GestureHandlerRootView>
+      <Swipeable renderRightActions={renderRightActions}>
+        <View style={styles.container}>
+          <Image
+            // source={require("../../assets/images/m1.jpg")}
+            source={image}
+            style={styles.image}
+            resizeMode="cover"
+          />
+          <View style={{ flex: 1, paddingLeft: 10 }}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
+              <Text style={{ fontSize: 16, fontWeight: "600" }}>{title}</Text>
+              <Text style={{ fontWeight: "600" }}>{time}</Text>
+            </View>
+            <View style={{ flexDirection: "row" }}>
+              <View style={{}}>
+                <Text style={{ fontWeight: "500" }}>
+                  {/* Tug of War | Market close flat. CVs Sales... */}
+                  {subject}
+                </Text>
+                <Text style={{ color: "gray" }}>
+                  {/* Despite a gap-up opening, market move... */}
+                  {subtitle}
+                </Text>
+              </View>
+              <TouchableWithoutFeedback onPress={handleStar}>
+                <AntDesign name={star} size={25} style={styles.icon} />
+              </TouchableWithoutFeedback>
+            </View>
           </View>
-          <TouchableWithoutFeedback onPress={handleStar}>
-            <AntDesign name={star} size={25} style={styles.icon} />
-          </TouchableWithoutFeedback>
         </View>
-      </View>
-    </View>
-    // </TouchableOpacity>
+      </Swipeable>
+    </GestureHandlerRootView>
   );
 };
 const styles = StyleSheet.create({

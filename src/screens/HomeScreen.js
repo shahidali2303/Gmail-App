@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   Text,
   View,
@@ -11,8 +11,23 @@ import Message from "../components/Message";
 import Social from "../components/Social";
 import Promotional from "../components/Promotional";
 import DATA from "../../assets/data/data";
+import Header from "../components/Header";
+import SendMailComponent from "../components/SendMailComponent";
+import ListItemSwipe from "../components/ListItemSwipe";
 
 const HomeScreen = ({ navigation }) => {
+  const [messages, setMessages] = useState(DATA);
+  const handleDelete = (message) => {
+    setMessages(messages.filter((m) => m.id !== message.id));
+  };
+  const getHeader = () => {
+    return (
+      <>
+        <Social />
+        <Promotional />
+      </>
+    );
+  };
   const renderItem = ({ item }) => (
     <TouchableOpacity
       activeOpacity={0.8}
@@ -26,19 +41,26 @@ const HomeScreen = ({ navigation }) => {
         subtitle={item.subtitle}
         time={item.time}
         title={item.title}
+        renderRightActions={() => (
+          <ListItemSwipe onPress={() => handleDelete(item)} />
+        )}
       />
     </TouchableOpacity>
   );
   return (
-    <ScrollView>
+    <>
+      <Header onPress={() => navigation.openDrawer()} />
+      <SendMailComponent
+        onPress={() => {
+          navigation.navigate("Send Mail");
+        }}
+      />
       <View style={styles.page}>
         <Text style={{ color: "gray", letterSpacing: 1 }}>PRIMARY</Text>
         <View style={styles.listContainer}>
-          <Social />
-          <Promotional />
-
           <FlatList
-            data={DATA}
+            data={messages}
+            showsVerticalScrollIndicator={false}
             renderItem={renderItem}
             keyExtractor={(item) => item.id}
             ListEmptyComponent={() => {
@@ -48,10 +70,11 @@ const HomeScreen = ({ navigation }) => {
                 </View>
               );
             }}
+            ListHeaderComponent={getHeader}
           />
         </View>
       </View>
-    </ScrollView>
+    </>
   );
 };
 const styles = StyleSheet.create({
