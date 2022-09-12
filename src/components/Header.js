@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { View, StyleSheet, TextInput, Image } from "react-native";
 import Octicons from "react-native-vector-icons/Octicons";
 import Screen from "./Screen";
 
 const Header = ({ onPress }) => {
+  const [searchTerm, setSearchTerm] = useState("");
+
   return (
     <Screen>
       <View style={styles.container}>
@@ -23,7 +25,11 @@ const Header = ({ onPress }) => {
           }}
         >
           <View style={{ marginLeft: 10, paddingTop: 6 }}>
-            <TextInput placeholder="Search mail" />
+            <TextInput
+              value={searchTerm}
+              onChangeText={setSearchTerm}
+              placeholder="Search mail"
+            />
           </View>
           <View>
             <Image

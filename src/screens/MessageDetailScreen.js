@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, Image } from "react-native";
+import { Text, View, StyleSheet, Image, ScrollView } from "react-native";
 import MssgDetailTopToolbar from "../components/MssgDetailTopToolbar";
 import Entypo from "react-native-vector-icons/Entypo";
 import Octicons from "react-native-vector-icons/Octicons";
@@ -59,24 +59,26 @@ const MessageDetalScreen = ({ route, navigation }) => {
           </View>
         </View>
 
-        <View style={{ marginTop: 20 }}>
-          <Text
-            style={{
-              fontSize: 20,
+        <ScrollView style={{}}>
+          <View style={{ marginTop: 20 }}>
+            <Text
+              style={{
+                fontSize: 15,
 
-              letterSpacing: 1,
-              marginVertical: 10,
-              lineHeight: 28,
-            }}
-          >
-            {messages.subtitle} Lorem ipsum dolor sit amet, consectetur
-            adipiscing elit, sed do eiusmod tempor incididunt ut labore et
-            dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
-            exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit
-            esse cillum dolore eu fugiat nulla pariatur.
-          </Text>
-        </View>
+                letterSpacing: 1,
+                marginVertical: 10,
+                lineHeight: 28,
+              }}
+            >
+              {messages.subtitle} Lorem ipsum dolor sit amet, consectetur
+              adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+              dolore magna aliqua. Ut enim ad minim veniam, quis nostrud
+              exercitation ullamco laboris nisi ut aliquip ex ea commodo
+              consequat. Duis aute irure dolor in reprehenderit in voluptate
+              velit esse cillum dolore eu fugiat nulla pariatur.
+            </Text>
+          </View>
+        </ScrollView>
       </View>
     </Screen>
   );
@@ -84,7 +86,6 @@ const MessageDetalScreen = ({ route, navigation }) => {
 const styles = StyleSheet.create({
   page: {
     margin: 10,
-
     // backgroundColor: "pink",
   },
   container: {

@@ -1,5 +1,5 @@
 import React from "react";
-import { Text, View, StyleSheet, TextInput, Touchable } from "react-native";
+import { View, StyleSheet, TextInput } from "react-native";
 import NewMailTopToolbar from "../components/NewMailTopToolbar";
 import SenderReceiver from "../components/SenderReciever";
 

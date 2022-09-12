@@ -9,6 +9,7 @@ import {
 } from "react-native";
 import Swipeable from "react-native-gesture-handler/Swipeable";
 import AntDesign from "react-native-vector-icons/AntDesign";
+import Entypo from "react-native-vector-icons/Entypo";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 
 const Message = ({
@@ -19,7 +20,7 @@ const Message = ({
   subtitle,
   renderRightActions,
 }) => {
-  const [star, setStar] = useState("staro");
+  const [star, setStar] = useState("star-outlined");
   function handleStar() {
     return setStar("star");
   }
@@ -41,19 +42,21 @@ const Message = ({
               <Text style={{ fontSize: 16, fontWeight: "600" }}>{title}</Text>
               <Text style={{ fontWeight: "600" }}>{time}</Text>
             </View>
-            <View style={{ flexDirection: "row" }}>
+            <View
+              style={{ flexDirection: "row", justifyContent: "space-between" }}
+            >
               <View style={{}}>
-                <Text style={{ fontWeight: "500" }}>
+                <Text style={{ fontWeight: "500" }} numberOfLines={1}>
                   {/* Tug of War | Market close flat. CVs Sales... */}
                   {subject}
                 </Text>
-                <Text style={{ color: "gray" }}>
+                <Text style={{ color: "gray" }} numberOfLines={1}>
                   {/* Despite a gap-up opening, market move... */}
                   {subtitle}
                 </Text>
               </View>
               <TouchableWithoutFeedback onPress={handleStar}>
-                <AntDesign name={star} size={25} style={styles.icon} />
+                <Entypo name={star} size={25} style={styles.icon} />
               </TouchableWithoutFeedback>
             </View>
           </View>
