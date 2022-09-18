@@ -24,11 +24,12 @@ const Header = ({ onPress }) => {
             flex: 1,
           }}
         >
-          <View style={{ marginLeft: 10, paddingTop: 6 }}>
+          <View style={{ marginLeft: 10, paddingTop: 6, width: "100%" }}>
             <TextInput
               value={searchTerm}
               onChangeText={setSearchTerm}
               placeholder="Search mail"
+              style={{}}
             />
           </View>
           <View>

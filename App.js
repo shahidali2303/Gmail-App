@@ -5,11 +5,12 @@ import "react-native-gesture-handler";
 import AppNavigator from "./src/navigations/AppNavigator";
 import { NavigationContainer } from "@react-navigation/native";
 import MessageNavigator from "./src/navigations/MessageNavigator";
+import AuthNavigator from "./src/navigations/AuthNavigator";
 
 export default function App() {
   return (
     <NavigationContainer theme={navigationTheme}>
-      <AppNavigator />
+      <AuthNavigator />
     </NavigationContainer>
     // <View>
     //   <Text>ajbndfklajilf</Text>

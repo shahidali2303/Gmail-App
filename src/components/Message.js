@@ -22,7 +22,10 @@ const Message = ({
 }) => {
   const [star, setStar] = useState("star-outlined");
   function handleStar() {
-    return setStar("star");
+    if (star === "star-outlined") setStar("star");
+    else {
+      setStar("star-outlined");
+    }
   }
   return (
     // <TouchableOpacity activeOpacity={0.8}>

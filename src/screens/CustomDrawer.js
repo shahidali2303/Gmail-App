@@ -1,19 +1,19 @@
 import React from "react";
-import {
-  Image,
-  ImageBackground,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Text, TouchableOpacity, View } from "react-native";
 import {
   DrawerContentScrollView,
   DrawerItemList,
   DrawerItem,
 } from "@react-navigation/drawer";
 import Feather from "react-native-vector-icons/Feather";
+import { auth } from "../../firebase";
 
 const CustomDrawer = (props) => {
+  const handleSignOut = () => {
+    auth.signOut().then(() => {
+      props.navigation.replace("Login");
+    });
+  };
   return (
     <View style={{ flex: 1 }}>
       <DrawerContentScrollView {...props} contentContainerStyle={{}}>
@@ -58,7 +58,7 @@ const CustomDrawer = (props) => {
             </Text>
           </View>
         </TouchableOpacity>
-        <TouchableOpacity onPress={() => {}} style={{ marginTop: 20 }}>
+        <TouchableOpacity onPress={handleSignOut} style={{ marginTop: 20 }}>
           <View style={{ flexDirection: "row" }}>
             <Feather name="log-out" size={20} color="gray" />
             <Text
